@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */; };
+		8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872097B1F6DC56B00119165 /* ChatViewController.swift */; };
 		88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */; };
 		88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */; };
 		88CA86F31F6DBA370025BFB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88CA86F21F6DBA370025BFB8 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		5D042C27A153D4DA99EB87E4 /* Pods_escape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_escape.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMClientHelper.swift; sourceTree = "<group>"; };
+		8872097B1F6DC56B00119165 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		88CA86E81F6DBA370025BFB8 /* escape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8872097D1F6DC58500119165 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				88CA86F21F6DBA370025BFB8 /* Assets.xcassets */,
+				88CA86F41F6DBA370025BFB8 /* LaunchScreen.storyboard */,
+				88CA86F71F6DBA370025BFB8 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		88CA86DF1F6DBA370025BFB8 = {
 			isa = PBXGroup;
 			children = (
@@ -68,11 +82,11 @@
 		88CA86EA1F6DBA370025BFB8 /* escape */ = {
 			isa = PBXGroup;
 			children = (
+				8872097D1F6DC58500119165 /* Resources */,
 				88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */,
 				88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */,
-				88CA86F21F6DBA370025BFB8 /* Assets.xcassets */,
-				88CA86F41F6DBA370025BFB8 /* LaunchScreen.storyboard */,
-				88CA86F71F6DBA370025BFB8 /* Info.plist */,
+				8872097B1F6DC56B00119165 /* ChatViewController.swift */,
+				88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */,
 			);
 			path = escape;
 			sourceTree = "<group>";
@@ -219,7 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */,
 				88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */,
+				8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */,
 				88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

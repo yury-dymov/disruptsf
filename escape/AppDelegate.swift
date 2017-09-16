@@ -7,20 +7,78 @@
 //
 
 import UIKit
+import Hyphenate
+import AVFoundation
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    //static let build = "yury"
+    
+    static let build = "seva"
+    static let pwd = "000000"
+    
     var window: UIWindow?
+    let locationManager = CLLocationManager()
+    
+    static var username: String {
+        return build
+    }
+    
+    static var other: String {
+        if username == "yury" {
+            return "seva"
+        }
+        
+        return "yury"
+    }
 
+    func _initChat() {
+        let options = EMOptions(appkey: "1503170916002691#escape")
+        
+        options?.isAutoLogin = true
+        options?.isAutoAcceptGroupInvitation = true
+        options?.isAutoAcceptFriendInvitation = true
+        
+        EMClient.shared().initializeSDK(with: options)
+        EMChatDemoHelper.shareHelper.noop()
+        EMClient.shared().register(withUsername: AppDelegate.username, password: AppDelegate.pwd)
+        EMClient.shared().login(withUsername: AppDelegate.username, password: AppDelegate.pwd)
+        EMClient.shared().contactManager.addContact(AppDelegate.other, message: "")
+    }
+    
+    func _requestPermissions() {
+        AVAudioSession.sharedInstance().requestRecordPermission({ (_) in })
+        
+        if (AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .notDetermined) {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
+                
+            })
+        }
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+            locationManager.startUpdatingLocation()
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        _requestPermissions()
+        _initChat()
         
         self.window = UIWindow()
         
-        window?.rootViewController = MapViewController()
+        window?.rootViewController = ChatViewController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
+        
+        if AppDelegate.build == "yury" {
+            EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in                
+            }
+        }
+
+        
         
         // Override point for customization after application launch.
         return true
@@ -47,7 +105,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
