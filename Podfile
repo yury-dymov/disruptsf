@@ -5,4 +5,5 @@ target 'escape' do
 
   pod 'ArcGIS-Runtime-SDK-iOS'
   pod 'Hyphenate', '~> 3.3.1'
+  pod 'Cartography'
 end
