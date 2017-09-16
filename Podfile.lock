@@ -1,0 +1,15 @@
+PODS:
+  - ArcGIS-Runtime-SDK-iOS (100.0.0)
+  - Hyphenate (3.3.1)
+
+DEPENDENCIES:
+  - ArcGIS-Runtime-SDK-iOS
+  - Hyphenate (~> 3.3.1)
+
+SPEC CHECKSUMS:
+  ArcGIS-Runtime-SDK-iOS: c96fbd2cf77678c75f54c69f341678fab2177bcf
+  Hyphenate: 48dd9475340ada20c03a644afc9cb2f13df8f697
+
+PODFILE CHECKSUM: 0969d34bbacac053d4235a3e614215997d705c71
+
+COCOAPODS: 1.3.1
