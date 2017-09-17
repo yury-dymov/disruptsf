@@ -12,6 +12,12 @@
 		88068DBB1F6E3CBB001A3186 /* ToasterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88068DBA1F6E3CBB001A3186 /* ToasterViewDelegate.swift */; };
 		88068DBD1F6E3CDC001A3186 /* Toaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88068DBC1F6E3CDC001A3186 /* Toaster.swift */; };
 		88068DBF1F6E3CF0001A3186 /* SuccessToaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88068DBE1F6E3CF0001A3186 /* SuccessToaster.swift */; };
+		88068DC21F6E431F001A3186 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88068DC11F6E431F001A3186 /* IntroViewController.swift */; };
+		88068DC41F6E43D0001A3186 /* intro.json in Resources */ = {isa = PBXBuildFile; fileRef = 88068DC31F6E43D0001A3186 /* intro.json */; };
+		88068DC91F6E441E001A3186 /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 88068DC51F6E441E001A3186 /* img_0.png */; };
+		88068DCA1F6E441E001A3186 /* img_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88068DC61F6E441E001A3186 /* img_1.png */; };
+		88068DCB1F6E441E001A3186 /* img_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88068DC71F6E441E001A3186 /* img_2.png */; };
+		88068DCC1F6E441E001A3186 /* img_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 88068DC81F6E441E001A3186 /* img_3.png */; };
 		88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */; };
 		88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C681F6DF91500B7A5F5 /* UIColor.swift */; };
 		88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C6A1F6E050200B7A5F5 /* UIButton.swift */; };
@@ -31,12 +37,18 @@
 		88068DBA1F6E3CBB001A3186 /* ToasterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToasterViewDelegate.swift; sourceTree = "<group>"; };
 		88068DBC1F6E3CDC001A3186 /* Toaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toaster.swift; sourceTree = "<group>"; };
 		88068DBE1F6E3CF0001A3186 /* SuccessToaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessToaster.swift; sourceTree = "<group>"; };
+		88068DC11F6E431F001A3186 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		88068DC31F6E43D0001A3186 /* intro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intro.json; sourceTree = "<group>"; };
+		88068DC51F6E441E001A3186 /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		88068DC61F6E441E001A3186 /* img_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_1.png; sourceTree = "<group>"; };
+		88068DC71F6E441E001A3186 /* img_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_2.png; sourceTree = "<group>"; };
+		88068DC81F6E441E001A3186 /* img_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_3.png; sourceTree = "<group>"; };
 		88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMClientHelper.swift; sourceTree = "<group>"; };
 		88425C681F6DF91500B7A5F5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		88425C6A1F6E050200B7A5F5 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		88425C6C1F6E180600B7A5F5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8872097B1F6DC56B00119165 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		88CA86E81F6DBA370025BFB8 /* escape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escape.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88CA86E81F6DBA370025BFB8 /* EscapeCarPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EscapeCarPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88CA86F21F6DBA370025BFB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +104,11 @@
 		8872097D1F6DC58500119165 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				88068DC51F6E441E001A3186 /* img_0.png */,
+				88068DC61F6E441E001A3186 /* img_1.png */,
+				88068DC71F6E441E001A3186 /* img_2.png */,
+				88068DC81F6E441E001A3186 /* img_3.png */,
+				88068DC31F6E43D0001A3186 /* intro.json */,
 				88CA86F21F6DBA370025BFB8 /* Assets.xcassets */,
 				88CA86F41F6DBA370025BFB8 /* LaunchScreen.storyboard */,
 				88CA86F71F6DBA370025BFB8 /* Info.plist */,
@@ -112,7 +129,7 @@
 		88CA86E91F6DBA370025BFB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88CA86E81F6DBA370025BFB8 /* escape.app */,
+				88CA86E81F6DBA370025BFB8 /* EscapeCarPool.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +141,7 @@
 				88425C671F6DF90800B7A5F5 /* Extensions */,
 				8872097D1F6DC58500119165 /* Resources */,
 				88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */,
+				88068DC11F6E431F001A3186 /* IntroViewController.swift */,
 				88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */,
 				8872097B1F6DC56B00119165 /* ChatViewController.swift */,
 				88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */,
@@ -159,7 +177,7 @@
 			);
 			name = escape;
 			productName = escape;
-			productReference = 88CA86E81F6DBA370025BFB8 /* escape.app */;
+			productReference = 88CA86E81F6DBA370025BFB8 /* EscapeCarPool.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -202,8 +220,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88068DC91F6E441E001A3186 /* img_0.png in Resources */,
+				88068DCC1F6E441E001A3186 /* img_3.png in Resources */,
 				88CA86F61F6DBA370025BFB8 /* LaunchScreen.storyboard in Resources */,
+				88068DCB1F6E441E001A3186 /* img_2.png in Resources */,
 				88CA86F31F6DBA370025BFB8 /* Assets.xcassets in Resources */,
+				88068DCA1F6E441E001A3186 /* img_1.png in Resources */,
+				88068DC41F6E43D0001A3186 /* intro.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +258,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-escape/Pods-escape-resources.sh",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/ArcGIS.bundle",
+				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -253,17 +276,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-escape/Pods-escape-frameworks.sh",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${PODS_ROOT}/Hyphenate/ios_IM_Hyphenate_sdk_3.3.4r1/HyphenateFullSDK/Hyphenate.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/ArcGIS.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hyphenate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -278,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */,
+				88068DC21F6E431F001A3186 /* IntroViewController.swift in Sources */,
 				88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */,
 				88068DBF1F6E3CF0001A3186 /* SuccessToaster.swift in Sources */,
 				88068DBB1F6E3CBB001A3186 /* ToasterViewDelegate.swift in Sources */,
@@ -411,7 +433,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.healthtap.escape;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EscapeCarPool;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -426,7 +448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.healthtap.escape;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EscapeCarPool;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
