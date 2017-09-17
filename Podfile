@@ -7,4 +7,5 @@ target 'escape' do
   pod 'Hyphenate', '~> 3.3.1'
   pod 'Cartography'
   pod 'lottie-ios'
+  pod 'TouchVisualizer'
 end
