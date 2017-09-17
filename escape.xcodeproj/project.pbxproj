@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */; };
+		88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C681F6DF91500B7A5F5 /* UIColor.swift */; };
+		88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C6A1F6E050200B7A5F5 /* UIButton.swift */; };
 		8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872097B1F6DC56B00119165 /* ChatViewController.swift */; };
 		88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */; };
 		88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		5D042C27A153D4DA99EB87E4 /* Pods_escape.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_escape.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMClientHelper.swift; sourceTree = "<group>"; };
+		88425C681F6DF91500B7A5F5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		88425C6A1F6E050200B7A5F5 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		8872097B1F6DC56B00119165 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		88CA86E81F6DBA370025BFB8 /* escape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 				D8F3D0CF493BE3CBBA8F820F /* Pods-escape.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		88425C671F6DF90800B7A5F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88425C681F6DF91500B7A5F5 /* UIColor.swift */,
+				88425C6A1F6E050200B7A5F5 /* UIButton.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		8872097D1F6DC58500119165 /* Resources */ = {
@@ -82,6 +95,7 @@
 		88CA86EA1F6DBA370025BFB8 /* escape */ = {
 			isa = PBXGroup;
 			children = (
+				88425C671F6DF90800B7A5F5 /* Extensions */,
 				8872097D1F6DC58500119165 /* Resources */,
 				88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */,
 				88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */,
@@ -237,6 +251,8 @@
 				88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */,
 				8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */,
 				88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */,
+				88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */,
+				88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

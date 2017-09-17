@@ -13,9 +13,9 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    //static let build = "yury"
+    static let build = "yury"
     
-    static let build = "seva"
+    //static let build = "seva"
     static let pwd = "000000"
     
     var window: UIWindow?
@@ -69,13 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow()
         
-        window?.rootViewController = ChatViewController()
+        window?.rootViewController = UINavigationController(rootViewController: MapViewController())
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
         if AppDelegate.build == "yury" {
-            EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in                
-            }
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+                EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in }
+            })
         }
 
         

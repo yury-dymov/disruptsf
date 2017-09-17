@@ -251,16 +251,25 @@ class EMChatDemoHelper: NSObject, EMClientDelegate, EMContactManagerDelegate, EM
     }
     
     func callDidReceive(_ aSession: EMCallSession!) {
+        print("callDidReceive")
         // ToDo
+        let _ = EMClient.shared().callManager.answerIncomingCall!(aSession.callId)
     }
     
     func callDidConnect(_ aSession: EMCallSession!) {
         print("callDidConnect")
+        /*
+         */
     }
     
     
     func callDidAccept(_ aSession: EMCallSession!) {
         print("callDidAccept")
+        if let navController = UIApplication.shared.keyWindow?.rootViewController as?UINavigationController {
+            if navController.topViewController?.classForCoder != ChatViewController.classForCoder() {
+                navController.pushViewController(ChatViewController(chatSession: aSession), animated: true)
+            }
+        }
     }
     
     
@@ -270,10 +279,18 @@ class EMChatDemoHelper: NSObject, EMClientDelegate, EMContactManagerDelegate, EM
         }
         print(aReason.rawValue)
         print("callDidEnd")
+        
+        if let navController = UIApplication.shared.keyWindow?.rootViewController as?UINavigationController {
+            if navController.topViewController?.classForCoder == ChatViewController.classForCoder() {
+                navController.popViewController(animated: true)
+            }
+        }
+
     }
     
     func callStateDidChange(_ aSession: EMCallSession!, type aType: EMCallStreamingStatus) {
         print("callStateDidChange")
+        print(aType)
     }
     
     func callNetworkDidChange(_ aSession: EMCallSession!, status aStatus: EMCallNetworkStatus) {
