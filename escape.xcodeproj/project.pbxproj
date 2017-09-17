@@ -28,6 +28,8 @@
 		88CA86F31F6DBA370025BFB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88CA86F21F6DBA370025BFB8 /* Assets.xcassets */; };
 		88CA86F61F6DBA370025BFB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88CA86F41F6DBA370025BFB8 /* LaunchScreen.storyboard */; };
 		88D2597F1F6E5ECF000B86C9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D2597E1F6E5ECF000B86C9 /* LandingViewController.swift */; };
+		88D259811F6E662B000B86C9 /* ModeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D259801F6E662B000B86C9 /* ModeSelectionViewController.swift */; };
+		88D259831F6E6685000B86C9 /* EButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D259821F6E6685000B86C9 /* EButton.swift */; };
 		E05AE7FCEF3D92FCFE30CE2C /* Pods_escape.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D042C27A153D4DA99EB87E4 /* Pods_escape.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		88CA86F51F6DBA370025BFB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88CA86F71F6DBA370025BFB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D2597E1F6E5ECF000B86C9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		88D259801F6E662B000B86C9 /* ModeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectionViewController.swift; sourceTree = "<group>"; };
+		88D259821F6E6685000B86C9 /* EButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EButton.swift; sourceTree = "<group>"; };
 		B13E92FB81E16B637A5FC9E6 /* Pods-escape.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-escape.debug.xcconfig"; path = "Pods/Target Support Files/Pods-escape/Pods-escape.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F3D0CF493BE3CBBA8F820F /* Pods-escape.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-escape.release.xcconfig"; path = "Pods/Target Support Files/Pods-escape/Pods-escape.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,8 +150,10 @@
 				88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */,
 				88D2597E1F6E5ECF000B86C9 /* LandingViewController.swift */,
 				88068DC11F6E431F001A3186 /* IntroViewController.swift */,
+				88D259801F6E662B000B86C9 /* ModeSelectionViewController.swift */,
 				88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */,
 				8872097B1F6DC56B00119165 /* ChatViewController.swift */,
+				88D259821F6E6685000B86C9 /* EButton.swift */,
 			);
 			path = escape;
 			sourceTree = "<group>";
@@ -310,8 +316,10 @@
 				88068DBD1F6E3CDC001A3186 /* Toaster.swift in Sources */,
 				8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */,
 				88D2597F1F6E5ECF000B86C9 /* LandingViewController.swift in Sources */,
+				88D259831F6E6685000B86C9 /* EButton.swift in Sources */,
 				88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */,
 				88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */,
+				88D259811F6E662B000B86C9 /* ModeSelectionViewController.swift in Sources */,
 				88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */,
 				88425C6D1F6E180600B7A5F5 /* UIImage.swift in Sources */,
 				88068DB71F6E3C84001A3186 /* ToasterHandler.swift in Sources */,

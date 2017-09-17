@@ -59,7 +59,7 @@ class IntroViewController: UIViewController {
     }()
     
     private lazy var nextButton: UIButton = {
-        let ret = UIButton()
+        let ret = EButton()
         
         ret.alpha = 1.0
         ret.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -168,13 +168,13 @@ class IntroViewController: UIViewController {
         
         constrain(animation) { an in
             an.top == an.superview!.top + 120
-            an.left == an.superview!.left + 40
-            an.right == an.superview!.right - 40
-            an.bottom == an.superview!.bottom - 80
+            an.left == an.superview!.left + 60
+            an.right == an.superview!.right - 60
+            an.bottom == an.superview!.bottom - 110
         }
         
         constrain(nextButton) { btn in
-            btn.bottom == btn.superview!.bottom - 10
+            btn.bottom == btn.superview!.bottom - 20
             btn.width == 240
             btn.height == 44
             btn.centerX == btn.superview!.centerX

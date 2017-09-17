@@ -23,7 +23,7 @@ class LandingViewController: UIViewController {
     }()
     
     private lazy var nextButton: UIButton = {
-        let ret = UIButton()
+        let ret = EButton()
         
         ret.alpha = 1.0
         ret.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -88,12 +88,12 @@ class LandingViewController: UIViewController {
         nextButton.layer.opacity = 0
         skipTitle.layer.opacity = 0
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.4) {
             self.titleLabel.frame = CGRect(x: 0, y: 100, width: self.titleLabel.bounds.size.width, height: 40)
             self.titleLabel.layer.opacity = 1
         }
         
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.6) {
             self.nextButton.frame = CGRect(x: (self.view.bounds.size.width - 240) / 2, y: self.view.bounds.size.height - 150, width: 240, height: 44)
             self.skipTitle.frame = CGRect(x: 0, y: self.nextButton.frame.origin.y + self.nextButton.frame.size.height + 10, width: self.view.bounds.size.width, height: 30)
             self.nextButton.layer.opacity = 1
