@@ -74,8 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window?.rootViewController = UINavigationController(rootViewController: MapViewController())
         }
-        
-        // window?.rootViewController = UINavigationController(rootViewController: MapViewController())
 
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()        

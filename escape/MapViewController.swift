@@ -159,12 +159,24 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.hidesBackButton = true
-
+        
         self.title = "Pick Location"
         self.view.addSubview(mapView)
         self.mapView.setViewpoint(AGSViewpoint(center: self.center, scale: 12000.0), duration: 4.0)
         self.mapView.graphicsOverlays.add(self.graphicsOverlay)
         self.mapView.graphicsOverlays.add(self.routeGraphicsOverlay)
+        
+        /*
+        let filterView = UIImageView(image: #imageLiteral(resourceName: "Filter"))
+        
+        self.view.addSubview(filterView)
+        
+        constrain(filterView) { f in
+            f.centerX == f.superview!.centerX
+            f.top == f.superview!.top + 40
+            f.width == 175
+            f.height == 30
+        }*/
         
         points.forEach({ (pnt) in
             let marker = pnt.marker(type: .available)
