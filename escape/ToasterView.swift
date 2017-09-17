@@ -80,7 +80,7 @@ open class ToasterView: UIView {
             case .normal:
                 self.typeView.backgroundColor = UIColor.clear
             case .success:
-                self.typeView.backgroundColor = UIColor("#33d4d4")
+                self.typeView.backgroundColor = UIColor("#4CD864")
             }
         }
     }

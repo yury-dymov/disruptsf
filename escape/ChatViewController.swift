@@ -46,8 +46,10 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatSession.remoteVideoView = EMCallRemoteView(frame: self.view.bounds)
-        chatSession.localVideoView = EMCallLocalView(frame: CGRect(x: 0, y: 0, width: 100, height: 132))
+        
+        self.view.backgroundColor = .black
+        chatSession.remoteVideoView = EMCallRemoteView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.width * 4 / 3))
+        chatSession.localVideoView = EMCallLocalView(frame: CGRect(x: 10, y: 10, width: 100, height: 132))
         
         self.view.addSubview(chatSession.remoteVideoView)
         self.view.addSubview(chatSession.localVideoView)
@@ -59,16 +61,6 @@ class ChatViewController: UIViewController {
         chatSession.localVideoView.layer.masksToBounds = true
         chatSession.localVideoView.layer.borderColor = UIColor("#33D4D4").cgColor
         
-        constrain(chatSession.remoteVideoView) { v in
-            v.edges == v.superview!.edges
-        }
-        
-        constrain(chatSession.localVideoView) { v in
-            v.left == v.superview!.left + 10
-            v.top == v.superview!.top + 10
-            v.width == 100
-            v.height == 132
-        }
         
         constrain(dropPhoneButton) { b in
             b.right == b.superview!.right - 20

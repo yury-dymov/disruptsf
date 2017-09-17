@@ -13,9 +13,9 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    //static let build = "yury"
+    static let build = "yury"
     
-    static let build = "seva"
+    //static let build = "seva"
     static let pwd = "000000"
     
     var window: UIWindow?
