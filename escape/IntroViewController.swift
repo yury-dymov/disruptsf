@@ -147,7 +147,7 @@ class IntroViewController: UIViewController {
         self.animHeaderTitle.layer.opacity = 0
         
         logo.layer.opacity = 0
-        
+
         constrain(headerTitle) { t in
             t.left == t.superview!.left + 20
             t.right == t.superview!.right - 20
@@ -168,8 +168,8 @@ class IntroViewController: UIViewController {
         
         constrain(animation) { an in
             an.top == an.superview!.top + 120
-            an.left == an.superview!.left + 20
-            an.right == an.superview!.right - 20
+            an.left == an.superview!.left + 40
+            an.right == an.superview!.right - 40
             an.bottom == an.superview!.bottom - 80
         }
         

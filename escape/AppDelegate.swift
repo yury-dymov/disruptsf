@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow()
         
-        window?.rootViewController = UINavigationController(rootViewController: IntroViewController())
+        window?.rootViewController = UINavigationController(rootViewController: LandingViewController())
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
