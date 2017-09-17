@@ -67,6 +67,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		88068DC01F6E4021001A3186 /* Toasters */ = {
+			isa = PBXGroup;
+			children = (
+				88068DB61F6E3C84001A3186 /* ToasterHandler.swift */,
+				88068DB81F6E3C9F001A3186 /* ToasterView.swift */,
+				88068DBA1F6E3CBB001A3186 /* ToasterViewDelegate.swift */,
+				88068DBC1F6E3CDC001A3186 /* Toaster.swift */,
+				88068DBE1F6E3CF0001A3186 /* SuccessToaster.swift */,
+			);
+			name = Toasters;
+			sourceTree = "<group>";
+		};
 		88425C671F6DF90800B7A5F5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,17 +120,13 @@
 		88CA86EA1F6DBA370025BFB8 /* escape */ = {
 			isa = PBXGroup;
 			children = (
+				88068DC01F6E4021001A3186 /* Toasters */,
 				88425C671F6DF90800B7A5F5 /* Extensions */,
 				8872097D1F6DC58500119165 /* Resources */,
 				88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */,
 				88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */,
 				8872097B1F6DC56B00119165 /* ChatViewController.swift */,
 				88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */,
-				88068DB61F6E3C84001A3186 /* ToasterHandler.swift */,
-				88068DB81F6E3C9F001A3186 /* ToasterView.swift */,
-				88068DBA1F6E3CBB001A3186 /* ToasterViewDelegate.swift */,
-				88068DBC1F6E3CDC001A3186 /* Toaster.swift */,
-				88068DBE1F6E3CF0001A3186 /* SuccessToaster.swift */,
 			);
 			path = escape;
 			sourceTree = "<group>";

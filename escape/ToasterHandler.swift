@@ -44,7 +44,7 @@ public class ToasterHandler: NSObject, ToasterViewDelegate {
         
         constrain(view, replace: group) { view in
             view.left == view.superview!.right
-            view.top == view.superview!.top + 25
+            view.top == view.superview!.top + 45
         }
         
         view.superview!.layoutIfNeeded()
@@ -52,7 +52,7 @@ public class ToasterHandler: NSObject, ToasterViewDelegate {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
             constrain(view, replace: group) { view in
                 view.right == view.superview!.right - 15
-                view.top == view.superview!.top + 25
+                view.top == view.superview!.top + 45
             }
             
             var prev = view
@@ -109,7 +109,7 @@ public class ToasterHandler: NSObject, ToasterViewDelegate {
                 if (prev == nil) {
                     constrain(toaster, replace: group) { view in
                         view.right == view.superview!.right - 15
-                        view.top == view.superview!.top + 25
+                        view.top == view.superview!.top + 45
                     }
                 } else {
                     constrain(toaster, prev!, replace: group) { view, prev in

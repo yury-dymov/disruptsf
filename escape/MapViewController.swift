@@ -175,10 +175,30 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
     public func didTapAccessoryButton(for callout: AGSCallout) {
         graphicsOverlay.graphics.removeAllObjects()
         graphicsOverlay.graphics.add(points[0].marker(type: .selected))
+        graphicsOverlay.graphics.add(origin.marker(type: .me))
         self.mapView.callout.isHidden = true
         ToasterHandler.shared.showToaster(SuccessToaster(message: "Congratulations! You are going with Seva now!"))
             
         self.animationFinished = false // don't want to accidentally go to the same pattern
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] tm in
+            guard let weakSelf = self else { return tm.invalidate() }
+            
+            let timeFormatter = DateFormatter()
+            
+            timeFormatter.dateFormat = "m:ss"
+            
+            let elapsedTime = weakSelf.timeToLeave - Date().timeIntervalSince1970
+            
+            if elapsedTime <= 0 {
+                weakSelf.title = "Hurry Up!"
+                tm.invalidate()
+                
+                return
+            }
+            
+            weakSelf.title = "Go to Seva (" + timeFormatter.string(from: Date(timeIntervalSince1970: elapsedTime)) + ")"
+        })
     }
 
 }
