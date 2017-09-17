@@ -40,7 +40,7 @@ extension AGSPoint {
     }
 }
 
-class MapViewController: UIViewController, AGSGeoViewTouchDelegate {
+class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
     private lazy var origin: AGSPoint = AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7758293, -122.3863622))
     
     private lazy var points: [AGSPoint] = [
@@ -69,6 +69,7 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate {
     
     private var tapTimer: TimeInterval = 0
     private var animationFinished: Bool = false
+    private lazy var timeToLeave: TimeInterval = MapViewController._genTime()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,22 +116,36 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate {
         return true
     }
     
-    private func _genTime() -> String {
+    private static func _genTime() -> TimeInterval {
+        let leaveTime: TimeInterval = Date().timeIntervalSince1970 + 15 * 60
+        
+        for i in 0..<900 {
+            if Int(floor(leaveTime + Double(i))) % 900 == 0 {
+                return floor(leaveTime + Double(i))
+            }
+        }
+        
+        return leaveTime
+    }
+    
+    private var _timeString: String {
         let timeFormatter = DateFormatter()
         
         timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .short
         
-        let leaveTime: TimeInterval = Date().timeIntervalSince1970 + 15 * 60
-        
-        for i in 0..<900 {
-            if Int(floor(leaveTime + Double(i))) % 900 == 0 {
-                return timeFormatter.string(from: Date(timeIntervalSince1970: floor(leaveTime + Double(i))))
-            }
+        return timeFormatter.string(from: Date(timeIntervalSince1970: timeToLeave))
+    }
+    
+    /*
+    func _findNearest(_ point: AGSPoint) -> Int {
+        let distances = points.map { (pnt) -> Double in
+            return (pnt.x - point.x) * (pnt.x - point.x) + (pnt.y - point.y) * (pnt.y - point.y)
         }
         
-        return timeFormatter.string(from: Date(timeIntervalSince1970: leaveTime))
+        return distances.index(of: distances.min()!) ?? 0
     }
+ */
     
     func geoView(_ geoView: AGSGeoView, didTapAtScreenPoint screenPoint: CGPoint, mapPoint: AGSPoint) {
         if !animationFinished || (tapTimer != 0 && Date().timeIntervalSince1970 - tapTimer < 2) {
@@ -139,18 +154,31 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate {
         
         tapTimer = Date().timeIntervalSince1970
         
+        // let nearest = _findNearest(mapPoint)
+        
         if self.mapView.callout.isHidden {
             self.mapView.callout.image = #imageLiteral(resourceName: "Seva")
             self.mapView.callout.title = "Seva Brekelov"
             
-            self.mapView.callout.detail = "3 spaces / " + _genTime()
+            self.mapView.callout.detail = "3 spaces / " + _timeString
             self.mapView.callout.isAccessoryButtonHidden = false
-            // self.mapView.callout.accessoryButtonImage
+            self.mapView.callout.accessoryButtonImage = #imageLiteral(resourceName: "Checkmark")
+            self.mapView.callout.delegate = self
+            self.mapView.callout.tintColor = UIColor("#33d4d4")
             self.mapView.callout.show(at: mapPoint, screenOffset: .zero, rotateOffsetWithMap: false, animated: true)
         } else {
             self.mapView.callout.isHidden = true
             tapTimer = 0
         }
+    }
+    
+    public func didTapAccessoryButton(for callout: AGSCallout) {
+        graphicsOverlay.graphics.removeAllObjects()
+        graphicsOverlay.graphics.add(points[0].marker(type: .selected))
+        self.mapView.callout.isHidden = true
+        ToasterHandler.shared.showToaster(SuccessToaster(message: "Congratulations! You are going with Seva now!"))
+            
+        self.animationFinished = false // don't want to accidentally go to the same pattern
     }
 
 }
