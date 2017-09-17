@@ -26,6 +26,7 @@ class ModeSelectionViewController: UIViewController {
         let ret = UILabel()
         
         ret.numberOfLines = 0
+        ret.layer.opacity = 0
         ret.font = UIFont.boldSystemFont(ofSize: 28)
         ret.textColor = .white
         ret.textAlignment = .center
@@ -39,6 +40,7 @@ class ModeSelectionViewController: UIViewController {
         
         ret.layer.borderColor = UIColor.white.cgColor
         ret.layer.borderWidth = 1
+        ret.layer.opacity = 0
         
         let lbl = UILabel()
         
@@ -79,6 +81,7 @@ class ModeSelectionViewController: UIViewController {
         
         ret.layer.borderColor = UIColor.white.cgColor
         ret.layer.borderWidth = 1
+        ret.layer.opacity = 0
         
         let lbl = UILabel()
         
@@ -326,13 +329,18 @@ class ModeSelectionViewController: UIViewController {
         self.findButton.frame = CGRect(x: self.view.frame.size.width, y: 120, width: 150, height: 150)
         self.nextButton.frame = CGRect(x: (self.view.frame.size.width - 240) / 2, y: self.view.frame.size.height, width: 240, height: 44)
         
-        UIView.animate(withDuration: 0.2) { 
-            self.titleLabel.frame = CGRect(x: 0, y: 40, width: self.view.frame.size.width, height: 40)
-        }
-        
-        UIView.animate(withDuration: 0.4) {
-            self.shareButton.frame = CGRect(x: 17, y: 120, width: 150, height: 150)
-            self.findButton.frame = CGRect(x: self.view.frame.size.width - 167, y: 120, width: 150, height: 150)
+        Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { (_) in
+            UIView.animate(withDuration: 0.2) {
+                self.titleLabel.frame = CGRect(x: 0, y: 40, width: self.view.frame.size.width, height: 40)
+                self.titleLabel.layer.opacity = 1
+            }
+            
+            UIView.animate(withDuration: 0.4) {
+                self.shareButton.frame = CGRect(x: 17, y: 120, width: 150, height: 150)
+                self.findButton.frame = CGRect(x: self.view.frame.size.width - 167, y: 120, width: 150, height: 150)
+                self.shareButton.layer.opacity = 1
+                self.findButton.layer.opacity = 1
+            }
         }
         
         adultCount.frame = CGRect(x: 17 - 350, y: 300, width: 350 - 17, height: 60)
