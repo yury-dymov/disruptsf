@@ -76,6 +76,7 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.hidesBackButton = true
 
         self.title = "Pick Location"
         self.view.addSubview(mapView)
