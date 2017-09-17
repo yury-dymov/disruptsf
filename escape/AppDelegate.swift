@@ -13,9 +13,9 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static let build = "yury"
+    //static let build = "yury"
     
-    //static let build = "seva"
+    static let build = "seva"
     static let pwd = "000000"
     
     var window: UIWindow?
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func _initChat() {
-        let options = EMOptions(appkey: "1503170916002691#escape")
+        let options = EMOptions(appkey: "1503170916002691#escapecarpool")
         
         options?.isAutoLogin = true
         options?.isAutoAcceptGroupInvitation = true
@@ -69,18 +69,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow()
         
-        window?.rootViewController = UINavigationController(rootViewController: ModeSelectionViewController())
-        window?.backgroundColor = .white
-        window?.makeKeyAndVisible()
-        
         if AppDelegate.build == "yury" {
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
-                // EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in }
-            })
+            window?.rootViewController = UINavigationController(rootViewController: LandingViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: MapViewController())
         }
+        
+        window?.rootViewController = UINavigationController(rootViewController: MapViewController())
 
-        
-        
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()        
         // Override point for customization after application launch.
         return true
     }

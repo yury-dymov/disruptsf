@@ -9,28 +9,32 @@
 import UIKit
 import ArcGIS
 import Cartography
+import Hyphenate
 
 enum MarkerType {
     case me
     case available
     case selected
+    case block
 }
 
 extension AGSPoint {
     private func _markerImage(type: MarkerType) -> UIImage {
         switch type {
         case .me:
-            return #imageLiteral(resourceName: "Marker")
+            return #imageLiteral(resourceName: "Marker").resize(newWidth: 90)
         case .available:
-            return #imageLiteral(resourceName: "MarkerAvailable")
+            return #imageLiteral(resourceName: "MarkerAvailable").resize(newWidth: 90)
         case .selected:
-            return #imageLiteral(resourceName: "MarkerSelected")
+            return #imageLiteral(resourceName: "MarkerSelected").resize(newWidth: 90)
+        case .block:
+            return #imageLiteral(resourceName: "Block").resize(newWidth: 45)
         }
     }
     
     
     func marker(type: MarkerType) -> AGSGraphic {
-        let markerImage = _markerImage(type: type).resize(newWidth: 90)
+        let markerImage = _markerImage(type: type)
         let symbol = AGSPictureMarkerSymbol(image: markerImage)
         
         symbol.leaderOffsetY = markerImage.size.height / 4
@@ -47,6 +51,18 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7718412, -122.393519)),
         AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7788752, -122.394988)),
         AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7814721, -122.389245))
+    ]
+    
+    private lazy var blocks: [AGSPoint] = [
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.775040, -122.392419)),
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.776779, -122.390273))
+    ]
+    
+    private lazy var route: [AGSPoint] = [
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7758293, -122.3863622)),
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.775468, -122.387665)),
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.772166, -122.386995)),
+        AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7718412, -122.393519)),
     ]
     
     private lazy var center: AGSPoint = AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7769039, -122.3904595)) // SF Pier 48
@@ -67,9 +83,65 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         return ret
     }()
     
+    let routeGraphicsOverlay = AGSGraphicsOverlay()
+    
     private var tapTimer: TimeInterval = 0
     private var animationFinished: Bool = false
     private lazy var timeToLeave: TimeInterval = MapViewController._genTime()
+    
+    public lazy var routeButton: UIButton = {
+        let ret = EButton(style: .light)
+        
+        ret.setImage(#imageLiteral(resourceName: "Route"), for: .normal)
+        ret.layer.cornerRadius = 8
+        ret.layer.masksToBounds = true
+        ret.isHidden = true
+        ret.block_setAction(block: { (btn) in
+            btn.isSelected = !btn.isSelected            
+            
+            if btn.isSelected {
+                btn.isEnabled = false
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+                    self.routeGraphicsOverlay.isVisible = true
+                    btn.isEnabled = true
+                })
+            } else {
+                self.routeGraphicsOverlay.isVisible = false
+            }
+        }, for: .touchUpInside)
+        
+        return ret
+    }()
+    
+    public lazy var messageChatButton: UIButton = {
+        let ret = EButton(style: .light)
+        
+        ret.setImage(#imageLiteral(resourceName: "chat-bubble-icon").resize(newWidth: 20), for: .normal)
+        ret.layer.cornerRadius = 8
+        ret.layer.masksToBounds = true
+        ret.isHidden = true
+        
+        return ret
+    }()
+    
+    public lazy var videoChatButton: UIButton = {
+        let ret = EButton(style: .light)
+        
+        ret.setImage(#imageLiteral(resourceName: "camera-icon").resize(newWidth: 21), for: .normal)
+        ret.layer.cornerRadius = 8
+        ret.layer.masksToBounds = true
+        ret.isHidden = true
+        ret.block_setAction(block: { (_) in
+            if AppDelegate.build == "yury" {
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+                    EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in }
+                })
+            }
+            
+        }, for: .touchUpInside)
+        
+        return ret
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +154,18 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         self.view.addSubview(mapView)
         self.mapView.setViewpoint(AGSViewpoint(center: self.center, scale: 12000.0), duration: 4.0)
         self.mapView.graphicsOverlays.add(self.graphicsOverlay)
+        self.mapView.graphicsOverlays.add(self.routeGraphicsOverlay)
         
         points.forEach({ (pnt) in
             let marker = pnt.marker(type: .available)
+            
+            marker.isVisible = false
+            
+            self.graphicsOverlay.graphics.add(marker)
+        })
+        
+        blocks.forEach({ (pnt) in
+            let marker = pnt.marker(type: .block)
             
             marker.isVisible = false
             
@@ -106,6 +187,39 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         constrain(mapView) { mapView in
             mapView.edges == mapView.superview!.edges
         }
+        
+        routeGraphicsOverlay.isVisible = false
+        routeGraphicsOverlay.graphics.add(AGSGraphic(geometry: AGSPolyline(points: route), symbol: AGSSimpleLineSymbol(style: .solid, color: UIColor.yellow, width: 5), attributes: nil))
+        
+        
+        self.view.addSubview(routeButton)
+        
+        let bSize: CGFloat = 44
+        
+        constrain(routeButton) { b in
+            b.width == bSize
+            b.height == bSize
+            b.right == b.superview!.right - 10
+            b.top == b.superview!.top + 110
+        }
+        
+        self.view.addSubview(messageChatButton)
+        
+        constrain(messageChatButton, routeButton) { b, pv in
+            b.width == bSize
+            b.height == bSize
+            b.right == b.superview!.right - 10
+            b.top == pv.bottom + 20
+        }
+        
+        self.view.addSubview(videoChatButton)
+        
+        constrain(videoChatButton, messageChatButton) { b, pv in
+            b.width == bSize
+            b.height == bSize
+            b.right == b.superview!.right - 10
+            b.top == pv.bottom + 20
+        }        
     }
 
     override func didReceiveMemoryWarning() {
@@ -177,10 +291,19 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
         graphicsOverlay.graphics.removeAllObjects()
         graphicsOverlay.graphics.add(points[0].marker(type: .selected))
         graphicsOverlay.graphics.add(origin.marker(type: .me))
+        blocks.forEach({ (pnt) in
+            let marker = pnt.marker(type: .block)
+            
+            self.graphicsOverlay.graphics.add(marker)
+        })
+        
         self.mapView.callout.isHidden = true
         ToasterHandler.shared.showToaster(SuccessToaster(message: "Congratulations! You are going with Seva now!"))
             
         self.animationFinished = false // don't want to accidentally go to the same pattern
+        messageChatButton.isHidden = false
+        routeButton.isHidden = false
+        videoChatButton.isHidden = false
         
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] tm in
             guard let weakSelf = self else { return tm.invalidate() }

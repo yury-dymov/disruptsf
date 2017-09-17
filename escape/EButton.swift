@@ -8,7 +8,26 @@
 
 import UIKit
 
+enum EButtonStyle {
+    case dark
+    case light
+}
+
 class EButton: UIButton {
+    let style: EButtonStyle
+    
+    public init(style: EButtonStyle = .dark) {
+        self.style = style
+        
+        super.init(frame: .zero)
+        _update()
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     open override var isHighlighted: Bool {
         didSet {
             _update()
@@ -30,12 +49,28 @@ class EButton: UIButton {
     private func _update() {
         let primary = UIColor("#33D4D4")
         
-        if isHighlighted || isSelected {
-            backgroundColor = UIColor("#38bdbd")
-        } else if !isEnabled {
-            backgroundColor = UIColor("#AAEDEE")
+        if style == .dark {
+            if isHighlighted || isSelected {
+                backgroundColor = UIColor("#38bdbd")
+            } else if !isEnabled {
+                backgroundColor = UIColor("#AAEDEE")
+            } else {
+                backgroundColor = primary
+            }
         } else {
-            backgroundColor = primary
+            setTitleColor(primary, for: .normal)
+            layer.borderColor = primary.cgColor
+            layer.borderWidth = 1
+
+            if isHighlighted || isSelected {
+                backgroundColor = primary
+                setTitleColor(.white, for: .normal)
+            } else if !isEnabled {
+                backgroundColor = UIColor("#AAEDEE")
+            } else {
+                backgroundColor = .white
+            }
         }
     }
+    
 }

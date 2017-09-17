@@ -77,7 +77,7 @@ class IntroViewController: UIViewController {
             
             
             if weakSelf._cur == weakSelf.stopFrames.count - 1 {
-                weakSelf.navigationController?.pushViewController(MapViewController(), animated: true)
+                weakSelf.navigationController?.pushViewController(ModeSelectionViewController(), animated: true)
                 
                 return
             }
