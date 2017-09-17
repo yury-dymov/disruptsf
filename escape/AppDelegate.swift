@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if AppDelegate.build == "yury" {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
-                EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in }
+                // EMClient.shared().callManager.start!(EMCallTypeVideo, remoteName: AppDelegate.other, ext: "") { (session, error) in }
             })
         }
 

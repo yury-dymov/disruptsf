@@ -10,6 +10,7 @@
 		88425C661F6DE07800B7A5F5 /* EMClientHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */; };
 		88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C681F6DF91500B7A5F5 /* UIColor.swift */; };
 		88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C6A1F6E050200B7A5F5 /* UIButton.swift */; };
+		88425C6D1F6E180600B7A5F5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88425C6C1F6E180600B7A5F5 /* UIImage.swift */; };
 		8872097C1F6DC56B00119165 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872097B1F6DC56B00119165 /* ChatViewController.swift */; };
 		88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */; };
 		88CA86EE1F6DBA370025BFB8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CA86ED1F6DBA370025BFB8 /* MapViewController.swift */; };
@@ -23,6 +24,7 @@
 		88425C641F6DDF8300B7A5F5 /* EMClientHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMClientHelper.swift; sourceTree = "<group>"; };
 		88425C681F6DF91500B7A5F5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		88425C6A1F6E050200B7A5F5 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		88425C6C1F6E180600B7A5F5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8872097B1F6DC56B00119165 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		88CA86E81F6DBA370025BFB8 /* escape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = escape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CA86EB1F6DBA370025BFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				88425C681F6DF91500B7A5F5 /* UIColor.swift */,
 				88425C6A1F6E050200B7A5F5 /* UIButton.swift */,
+				88425C6C1F6E180600B7A5F5 /* UIImage.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -209,7 +212,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-escape/Pods-escape-resources.sh",
-				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/Versions/Current/Resources/ArcGIS.bundle",
+				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework/ArcGIS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -227,11 +230,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-escape/Pods-escape-frameworks.sh",
+				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework",
+				"${PODS_ROOT}/ArcGIS-Runtime-SDK-iOS/ArcGIS.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
-				"${PODS_ROOT}/Hyphenate/ios_IM_Hyphenate_sdk_3.3.1/HyphenateFullSDK/Hyphenate.framework",
+				"${PODS_ROOT}/Hyphenate/ios_IM_Hyphenate_sdk_3.3.4r1/HyphenateFullSDK/Hyphenate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ArcGIS.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/ArcGIS.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hyphenate.framework",
 			);
@@ -253,6 +260,7 @@
 				88CA86EC1F6DBA370025BFB8 /* AppDelegate.swift in Sources */,
 				88425C691F6DF91500B7A5F5 /* UIColor.swift in Sources */,
 				88425C6B1F6E050200B7A5F5 /* UIButton.swift in Sources */,
+				88425C6D1F6E180600B7A5F5 /* UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
