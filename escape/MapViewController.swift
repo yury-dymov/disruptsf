@@ -45,6 +45,16 @@ extension AGSPoint {
 }
 
 class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDelegate {
+    public init(timeToLeave: TimeInterval = 0) {
+        self.timeToLeave = timeToLeave
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var origin: AGSPoint = AGSPoint(clLocationCoordinate2D: CLLocationCoordinate2DMake(37.7758293, -122.3863622))
     
     private lazy var points: [AGSPoint] = [
@@ -87,7 +97,7 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
     
     private var tapTimer: TimeInterval = 0
     private var animationFinished: Bool = false
-    private lazy var timeToLeave: TimeInterval = MapViewController._genTime()
+    private let timeToLeave: TimeInterval
     
     public lazy var routeButton: UIButton = {
         let ret = EButton(style: .light)
@@ -230,19 +240,7 @@ class MapViewController: UIViewController, AGSGeoViewTouchDelegate, AGSCalloutDe
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    private static func _genTime() -> TimeInterval {
-        let leaveTime: TimeInterval = Date().timeIntervalSince1970 + 15 * 60
         
-        for i in 0..<900 {
-            if Int(floor(leaveTime + Double(i))) % 900 == 0 {
-                return floor(leaveTime + Double(i))
-            }
-        }
-        
-        return leaveTime
-    }
-    
     private var _timeString: String {
         let timeFormatter = DateFormatter()
         
